@@ -1,13 +1,24 @@
 var express = require('express');
 var app = express();
+
 var port = 3000;
 
-app.get('/', function(request, response) {
-	response.send('<h2>Hello Coders.Tokyo<h2>');
+app.set('view engine', 'pug');
+app.set('views', './views');
+
+app.get('/', function(req, res) {
+	res.render('index', {
+		name: 'AAA'
+	});
 });
 
-app.get('/hello', function(request, response) {
-	response.send('Hello World');
+app.get('/users', function(req, res) {
+	res.render('users/index', {
+		users: [
+			{id: 1, name: 'Tom'},
+			{id: 2, name: 'Jerry'}
+		]
+	});
 });
 
 app.listen(port, function() {
