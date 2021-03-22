@@ -1,0 +1,9 @@
+/*Custom CSS here*/
+
+body{
+	background: #f6f9fa;
+}
+
+.navbar{
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 3px;
+}
