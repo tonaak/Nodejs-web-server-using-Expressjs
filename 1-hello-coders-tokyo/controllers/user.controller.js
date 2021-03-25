@@ -37,8 +37,6 @@ module.exports.id = function(req, res) {
 module.exports.postCreate = function(req, res) {
 	req.body.id = shortid.generate();
 
-	console.log(res.locals);
-
 	db.get('users').push(req.body).write();
 	res.redirect('/users');
 };
