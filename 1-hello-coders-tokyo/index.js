@@ -8,6 +8,7 @@ var db = require('./db');
 
 var userRoute = require('./routers/user.router');
 var authRoute = require('./routers/auth.router');
+var productRoute = require('./routers/product.router');
 
 var authMiddleware = require('./middlewares/auth.middleware');
 
@@ -31,6 +32,7 @@ app.get('/', function(req, res) {
 
 app.use('/users', authMiddleware.requireAuth, userRoute);
 app.use('/auth', authRoute);
+app.use('/products', productRoute);
 
 app.listen(port, function() {
 	console.log('Server listening on port ' + port);
