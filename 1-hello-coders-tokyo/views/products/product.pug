@@ -17,7 +17,7 @@ block content
 					.card-body
 						h5.card-title= product.name
 						p.card-text= product.description
-						a.btn.btn-primary(href='#') Add to cart
+						a.btn.btn-primary(href='/cart/add/' + product.id) Add to cart
 
 	nav.mb-5(aria-label='Page navigation example')
 		ul.pagination.justify-content-center
@@ -29,11 +29,16 @@ block content
 				li.page-item
 					a.page-link(href='?page='+previousPage) Previous
 
-			- var i = 1
-			while i < numberOfPages
-				li.page-item
-					a.page-link(href='?page='+i)= i++
+			li.page-item
+				a.page-link(href='?page=1') 1
+			
+			li.page-item
+				a.page-link(href='?page=2') 2
 				
+			li.page-item.disabled
+				a.page-link(href='#') ...
+
+							
 
 			li.page-item
 				a.page-link(href='?page='+numberOfPages)= numberOfPages
